@@ -1,0 +1,27 @@
+<h1>Listas de acuerdos de la sesión</h1>
+
+<table>
+  <tr>
+    <th>Título</th>
+    <th>Detalles</th>
+    <th>Lista acuerdo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @acuerdos.each do |acuerdo| %>
+  <tr>
+    <td><%= acuerdo.titulo %></td>
+    <td><%= acuerdo.detalles %></td>
+    <td><%= acuerdo.lista_acuerdo_id %></td>
+    <td><%= link_to 'Mostrar', acuerdo %></td>
+    <td><%= link_to 'Editar', edit_acuerdo_path(acuerdo) %></td>
+    <td><%= link_to 'Destruir', acuerdo, method: :delete, data: { confirm: 'Esta seguro que desea borrar?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Acuerdo', new_acuerdo_path %>

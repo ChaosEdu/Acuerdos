@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @empleado.nombre %>
+</p>
+
+<p>
+  <b>Ap paterno:</b>
+  <%= @empleado.ap_paterno %>
+</p>
+
+<p>
+  <b>Ap materno:</b>
+  <%= @empleado.ap_materno %>
+</p>
+
+<p>
+  <b>Puesto:</b>
+  <%= @empleado.puestos_entidad.nom_puesto %>
+</p>
+
+<p>
+  <b>Dir trabajo:</b>
+  <%= @empleado.dir_trabajo %>
+</p>
+
+
+<p>
+  <b>Activo en la entidad:</b>
+  <%= @empleado.activo %>
+</p>
+
+<p>
+  <b>Tipo usuario:</b>
+  <%= @empleado.tipo_usuario.nom_usuario %>
+</p>
+
+<p>
+  <b>Entidad paraestatal:</b>
+  <%= @empleado.entidad_paraestatal.nom_entidad %>
+</p>
+
+
+<%= link_to 'Editar', edit_empleado_path(@empleado) %> |
+<%= link_to 'Regresar', empleados_path %>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Sistema de Control de Dependencias</title>
+        
+		<link rel="stylesheet" type="text/css" href="css/bookblock.css" />
+		<link rel="stylesheet" type="text/css" href="css/custom.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.jscrollpane.custom.css" />
+
+
+		<script src="js/modernizr.custom.79639.js"></script>
+	</head>
+	<body>
+		<div id="container" class="container">
+           	<div class="menu-panel">
+                <h3>Sistema de Control de Dependencias</h3>
+                
+				<ul id="menu-toc" class="menu-toc">
+					<li class="menu-toc-current"><a href="#item1" class="tantan" data-url="primera.html">Entidades</a></li>
+                    <li><a href="#item2" class="tantan" data-url= "">Sesiones</a></li>
+					<li><a href="#item3" class="tantan" data-url= "">Acuerdos</a></li>
+
+				</ul> 
+                </div>
+
+        <!-- ***************************Hasta aquí termina el menú********************************   -->
+            
+			<div class="bb-custom-wrapper">
+                
+				<div id="bb-bookblock" class="bb-bookblock">
+					<div class="bb-item" id="item1">
+						<div class="content">
+                             <div><img style="background: no-repeat left top; position: absolute;top: 4px;
+right: 60px; height: 88px; width: 323px;" src="img/logotipos.png"  /> </div>
+							<div class="scroller">
+								<h2>Entidades Paraestatales</h2>
+                                <div id="contenedor">
+                                </div>
+							</div>
+						</div>
+					</div>
+					<div class="bb-item" id="item2">
+						<div class="content">
+							<div class="scroller">
+							<h2>Sesiones</h2>
+                                <div id="contenedor">
+                                </div>
+                                                                 
+                                </div>
+                        </div>
+                    </div>
+					
+					<div class="bb-item" id="item3">
+						<div class="content">
+							<div class="scroller">
+								<h2>Acuerdos</h2>
+                                <div id="contenedor">
+                                </div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				
+
+				<span id="tblcontents" class="menu-button"></span>
+
+			</div>
+            </div>
+				
+		
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+		<script src="js/jquery.mousewheel.js"></script>
+		<script src="js/jquery.jscrollpane.min.js"></script>
+		<script src="js/jquerypp.custom.js"></script>
+		<script src="js/jquery.bookblock.js"></script>
+		<script src="js/page.js"></script>    
+        <script src="../grid/grid.js"></script> 
+
+              
+		<script>
+			$(function() {
+
+				Page.init();
+         
+			});
+		</script>
+        
+        
+        <script>
+            $(function(){
+                 $(".tantan").each(function()
+                                  {
+                                      $(this).click (function(e)
+                                      {
+                                          $( $(this).attr("href")+ " #contenedor").load($(this).data("url") + " .container:first");
+                                          e.preventDefault();
+                                      });
+                                  });
+
+            });    
+        </script>
+	</body>
+</html>
+
+                 

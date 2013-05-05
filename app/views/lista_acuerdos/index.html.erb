@@ -1,0 +1,25 @@
+<h1>Lista de Acuerdos</h1>
+
+<table>
+  <tr>
+    <th>Acta</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lista_acuerdos.each do |lista_acuerdo| %>
+  <tr>
+   
+    <td><%= lista_acuerdo.act %></td>
+    <td><%= link_to 'Mostar lista de acuerdos', [@sesion, lista_acuerdo] %></td>
+    <td><%= link_to 'Editar lista de acuerdos', edit_sesion_lista_acuerdo_path(@sesion, lista_acuerdo) %></td>
+    <td><%= link_to 'Destruir lista de acuerdos', [@sesion, lista_acuerdo], method: :delete, data: { confirm: 'Está seguro que desea destruirla?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nueva lista de acuerdos', new_sesion_lista_acuerdo_path(@sesion) %>
+<%= link_to 'Regresar a la sesión', entidad_paraestatal_sesions_path([@entidad_paraestatal, @sesion]) %>

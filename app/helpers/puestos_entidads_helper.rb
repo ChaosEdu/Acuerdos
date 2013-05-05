@@ -1,0 +1,2 @@
+module PuestosEntidadsHelper
+end

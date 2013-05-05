@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre del documento:</b>
+  <%= @tramite.nombre_doc %>
+</p>
+
+<p>
+  <b>Entidad paraestatal:</b>
+  <%= @tramite.entidad_paraestatal_id %>
+</p>
+
+
+<%= link_to 'Editar', edit_tramite_path(@tramite) %> |
+<%= link_to 'Regresar', tramites_path %>

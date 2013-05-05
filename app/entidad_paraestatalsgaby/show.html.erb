@@ -1,0 +1,73 @@
+<p id="notice"><%= notice %></p>
+  
+    <legend>Mostrar Entidad Paraestatal</legend>
+        <div class="tabbable"> <!-- Only required for left/right tabs -->
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab1" data-toggle="tab">Descripción</a></li>
+                <li><a href="#tab2" data-toggle="tab">Objeto Social</a></li>
+                <li><a href="#tab3" data-toggle="tab">Indicadores</a></li>
+                <li><a href="#tab4" data-toggle="tab">Marco Normativo</a></li>
+                <li><a href="#tab5" data-toggle="tab">Miembros</a></li>
+                </ul>
+              <div class="tab-content">
+                <div class="tab-pane fade in active" id="tab1">
+                    <strong>Nombre de la entidad:</strong><br>
+                    <p><%= @entidad_paraestatal.nom_entidad %></p>
+					
+                    <strong>Tipo de entidad:</strong><br>
+                    <p><%= @entidad_paraestatal.tipo_entidad.nom_tipo_entidad %></p>
+					
+                    <strong>Órgano de gobierno:</strong><br>
+                    <p><%= @entidad_paraestatal.organo_de_gobierno.nom_organo %></p>
+					
+                    <strong>Secretaría:</strong><br>
+                    <p><%= @entidad_paraestatal.secretaria.nom_secretaria %></p>
+                </div>
+                <div class="tab-pane fade" id="tab2">
+                  <p><%= @entidad_paraestatal.objeto_social %></p>
+                </div>
+                  <div class="tab-pane active fade" id="tab3">
+                  <p></p>
+                </div>
+                  <div class="tab-pane active fade" id="tab4">
+                  <p><%= @entidad_paraestatal.marco_normativo %></p>
+                </div>
+				
+                  <div class="tab-pane active fade" id="tab5">
+				  <% @entidad_paraestatal.empleados.each do |empleado|%>
+
+                      <strong>Puesto:</strong><br>
+                      <p><%= empleado.puestos_entidad.nom_puesto %></p>
+                      <strong>Nombre:</strong><br>
+                      <p><%= empleado.nombre %> <%= empleado.ap_paterno %> <%= empleado.ap_materno %></p>
+                      <strong>Dirección de trabajo:</strong><br>
+                      <p><%= empleado.dir_trabajo %></p>
+					  <strong>Teléfono:</strong><br>
+					  <% empleado.telefonos.each do |telefono| %>
+						<p><%= telefono.tipo_tel.nom_tipo_tel %> <%= telefono.num_telefono %></p>
+					  <% end %>
+					  <strong>Email</strong><br>
+					  <% empleado.emails.each do |email| %>
+						<p><%= email.tipo_email.nom_tipo_email %> <%= email.correo %></p>
+					  <% end %>
+					  
+                      <strong>Status:</strong><br>
+                      <p><%= empleado.activo %></p>
+                      <strong>Jefe inmediato:</strong><br>
+                      <p><%= empleado.jefe_inmediato %></p>
+                                      </div>
+              </div>
+            </div>
+					<%end %>  
+
+			<%= link_to ' ', edit_entidad_paraestatal_path(@entidad_paraestatal) , :class=>"icon-edit" %>
+			<%= link_to ' ', entidad_paraestatals_path, :class=>"icon-arrow-left" %>
+			<%= link_to "Lista de sesiones", entidad_paraestatal_sesions_path(@entidad_paraestatal) %>
+      
+
+		
+		
+		
+		
+    
+

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nombre_doc: MyString
+  entidad_paraestatal_id: 1
+
+two:
+  nombre_doc: MyString
+  entidad_paraestatal_id: 1

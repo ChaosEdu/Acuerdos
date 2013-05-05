@@ -1,0 +1,71 @@
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Status:</b>
+  <%= @sesion.status %>
+</p>
+
+<p>
+  <b>Fecha:</b>
+  <%= @sesion.fecha %>
+</p>
+
+<p>
+  <b>Hora:</b>
+  <%= @sesion.hora %>
+</p>
+
+<p>
+  <b>Lugar:</b>
+  <%= @sesion.lugar %>
+</p>
+
+<p>
+  <b>Extra ordinaria:</b>
+  <%= @sesion.extra_ordinaria %>
+</p>
+
+<p>
+  <b>Entidad paraestatal:</b>
+  <%= @sesion.entidad_paraestatal.nom_entidad %>
+</p>
+
+
+<%= nested_form_for [@entidad_paraestatal, @sesion] do |f| %>
+          
+          <%= f.fields_for :suplentes do |q| %>
+        
+        <%= q.fields_for :empleados do |g| %>
+          <%= g.label :nombre%>
+          <%= g.text_field :nombre %>
+          
+          <%= g.label :ap_paterno, "Apellido paterno" %>
+          <%= g.text_field :ap_paterno %>
+          
+          <%= g.label :ap_materno,  "Apellido materno" %>
+          <%= g.text_field :ap_materno %>
+          
+          <%= g.label :dir_trabajo, "Dirección de Trabajo" %>
+          <%= g.text_field :dir_trabajo %>
+          <%= g.fields_for :telefonos do |t|%>
+                <%= t.label :num_telefono, "Número de teléfono" %>
+                <%= t.text_field :num_telefono %>
+            <%end%>
+              <%= g.fields_for :emails do |k|%>
+                <%= k.label :correo%>
+                <%= k.text_field :correo %>
+            <%end%>
+            
+        <% end %>
+        <%= f.link_to_remove "Remover Suplente" %> 
+        <% end %>
+
+        <%= f.link_to_add "Agregar Suplente", :suplentes %>
+        <%= f.submit "Guardar" %>
+<% end %>
+
+
+<%= link_to "Lista de acuerdos", sesion_lista_acuerdos_path(@sesion) %>
+<%= link_to 'Editar', edit_entidad_paraestatal_sesion_path(@sesion) %> |
+<%= link_to 'Regresar', entidad_paraestatal_sesions_path(@entidad_paraestatal) %>

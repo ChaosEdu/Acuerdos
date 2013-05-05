@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre de la secretaría:</b>
+  <%= @secretarium.nom_secretaria %>
+</p>
+
+
+<%= link_to 'Editar', edit_secretarium_path(@secretarium) %> |
+<%= link_to 'Regresar', secretaria_path %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  Empleado_id: 
+  EntidadParaestatal_id: 
+  Gestion_id: 
+
+two:
+  Empleado_id: 
+  EntidadParaestatal_id: 
+  Gestion_id: 

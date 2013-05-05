@@ -1,0 +1,29 @@
+<%= form_for(@telefono) do |f| %>
+  <% if @telefono.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@telefono.errors.count, "error") %> prohibited this telefono from being saved:</h2>
+
+      <ul>
+      <% @telefono.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :num_telefono, "Número de teléfono" %><br />
+    <%= f.text_field :num_telefono %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_tel_id, "Tipo de teléfono" %><br />
+    <%= f.select :tipo_tel_id, TipoTel.all.collect {|p| [ p.nom_tipo_tel, p.id ] }, { :include_blank => true }  %>
+  </div>
+  <div class="field">
+    <%= f.label :empleado_id, "Empleado al que pertenece" %><br />
+    <%= f.select :empleado_id, Empleado.all.collect {|p| [ p.nombre, p.id ] }, { :include_blank => true } %>
+  </div>
+  <div class="actions">
+    <%= f.submit "#{ f.object.new_record? ? 'Crear teléfono': 'Actualizar teléfono'}"%>
+  </div>
+<% end %>

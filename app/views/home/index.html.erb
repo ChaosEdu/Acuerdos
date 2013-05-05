@@ -1,0 +1,13 @@
+<h1>Sistema de Monitoreo de Sesiones y Acuerdos</h1>
+<p>Escribe todos para mostrar a todas las entidades</p1>
+
+<%= form_tag entidad_paraestatals_path, :method=> 'get' do %>
+<p>
+	<%= text_field_tag :search, params[:search]  %>
+	<%= submit_tag "Búsqueda de entidades", :name => nil, class: "btn" %>
+</p>
+<%end%>
+
+
+<%= link_to "Mostrar todas las entidades paraestatales", entidad_paraestatals_path %>
+<%= link_to "Mostrar teléfonos", telefonos_path %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Titulo:</b>
+  <%= @acuerdo.titulo %>
+</p>
+
+<p>
+  <b>Detalles:</b>
+  <%= @acuerdo.detalles %>
+</p>
+
+<p>
+  <b>Lista acuerdo:</b>
+  <%= @acuerdo.lista_acuerdo_id %>
+</p>
+
+
+<%= link_to 'Editar', edit_acuerdo_path(@acuerdo) %> |
+<%= link_to 'Regresar', acuerdos_path %>

@@ -1,0 +1,2 @@
+module TipoEmailsHelper
+end

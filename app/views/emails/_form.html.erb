@@ -1,0 +1,29 @@
+<%= form_for(@email) do |f| %>
+  <% if @email.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@email.errors.count, "error") %> prohibited this email from being saved:</h2>
+
+      <ul>
+      <% @email.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :correo %><br />
+    <%= f.text_field :correo %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_email_id, "Tipo de email" %><br />
+    <%= f.select :tipo_email_id, TipoEmail.all.collect {|p| [ p.nom_tipo_email, p.id ] }, { :include_blank => true }  %>
+  </div>
+  <div class="field">
+    <%= f.label :empleado_id, "Empleado al que pertenece" %><br />
+    <%= f.select :empleado_id, Empleado.all.collect {|p| [ p.nombre, p.id ] }, { :include_blank => true } %>
+  </div>
+  <div class="actions">
+    <%= f.submit "#{ f.object.new_record? ? 'Crear email': 'Actualizar email'}" %>
+  </div>
+<% end %>

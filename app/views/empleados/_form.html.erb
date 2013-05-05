@@ -1,0 +1,49 @@
+<%= form_for(@empleado) do |f| %>
+  <% if @empleado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@empleado.errors.count, "error") %> prohibited this empleado from being saved:</h2>
+
+      <ul>
+      <% @empleado.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :ap_paterno, "Apellido Paterno" %><br />
+    <%= f.text_field :ap_paterno %>
+  </div>
+  <div class="field">
+    <%= f.label :ap_materno, "Apellido Materno" %><br />
+    <%= f.text_field :ap_materno %>
+  </div>
+  <div class="field">
+    <%= f.label :puestos_entidad_id, "Puesto en la entidad" %><br />
+     <%= f.select :puestos_entidad_id, PuestosEntidad.all.collect {|p| [ p.nom_puesto, p.id ] }, { :include_blank => true } %>
+  </div>
+  <div class="field">
+    <%= f.label :dir_trabajo, "Dirección de trabajo" %><br />
+    <%= f.text_field :dir_trabajo %>
+  </div>
+  <div class="field">
+    <%= f.label :activo, "Activo en la entidad" %><br />
+    <%= f.check_box :activo %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_usuario_id, "Tipo de usuario" %><br />
+    <%= f.select :tipo_usuario_id, TipoUsuario.all.collect {|p| [ p.nom_usuario, p.id ] }, { :include_blank => true } %>
+  </div>
+  <div class="field">
+    <%= f.label :entidad_paraestatal_id %><br />
+    <%= f.select :entidad_paraestatal_id, EntidadParaestatal.all.collect {|p| [ p.nom_entidad, p.id ] }, { :include_blank => true } %>
+  </div>
+  <div class="actions">
+    <%= f.submit "#{ f.object.new_record? ? 'Crear empleado': 'Actualizar empleado'}" %>
+  </div>
+<% end %>

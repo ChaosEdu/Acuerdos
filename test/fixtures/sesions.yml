@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  status: false
+  acta: false
+  fecha: 2013-04-16 20:58:02
+  hora: 2013-04-16 20:58:02
+  lugar: MyText
+  extra_ordinaria: false
+  entidad_paraestatal: 
+  suplente: 
+
+two:
+  status: false
+  acta: false
+  fecha: 2013-04-16 20:58:02
+  hora: 2013-04-16 20:58:02
+  lugar: MyText
+  extra_ordinaria: false
+  entidad_paraestatal: 
+  suplente: 

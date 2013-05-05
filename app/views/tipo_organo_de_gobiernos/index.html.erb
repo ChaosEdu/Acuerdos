@@ -1,0 +1,23 @@
+<h1>Listado de los tipos de organos de gobierno</h1>
+
+<table>
+  <tr>
+    <th>Nombre del tipo de organo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tipo_organo_de_gobiernos.each do |tipo_organo_de_gobierno| %>
+  <tr>
+    <td><%= tipo_organo_de_gobierno.nom_tipo_de_organo %></td>
+    <td><%= link_to 'Mostrar', tipo_organo_de_gobierno %></td>
+    <td><%= link_to 'Editar', edit_tipo_organo_de_gobierno_path(tipo_organo_de_gobierno) %></td>
+    <td><%= link_to 'Destruir', tipo_organo_de_gobierno, method: :delete, data: { confirm: 'Está seguro?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo  tipo de organo de gobierno', new_tipo_organo_de_gobierno_path %>

@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Avance:</b>
+  <%= @lista_acuerdo.avance %>
+</p>
+
+
+<p>
+  <b>Act:</b>
+  <%= @lista_acuerdo.act %>
+</p>
+
+<%= nested_form_for [@sesion, @lista_acuerdo]  do |f| %>
+        
+        <%= f.fields_for :acuerdos do |g| %>
+	        <%= g.label :titulo%>
+	        <%= g.text_field :titulo %>
+	        <%= g.label :detalles %>
+	        <%= g.text_field :detalles %>
+          <%= g.label :avance_acuerdo %>
+          <%= g.text_field :avance_acuerdo %>
+	        <%= g.link_to_remove "Remover acuerdo" %>
+ 	  			 			 
+	        
+        
+        <% end %>
+          <%= f.link_to_add "Agregar", :acuerdos %>
+        <%= f.submit "Guardar" %>
+
+	
+<% end %>
+
+
+<%= link_to 'Editar lista de acuerdos', edit_sesion_lista_acuerdo_path(@sesion, @lista_acuerdo) %> |
+<%= link_to 'Regresar al listas de acuerdos de la entidad', sesion_lista_acuerdos_path(@sesion) %>

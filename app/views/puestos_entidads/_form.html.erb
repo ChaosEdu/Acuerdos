@@ -1,0 +1,21 @@
+<%= form_for(@puestos_entidad) do |f| %>
+  <% if @puestos_entidad.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@puestos_entidad.errors.count, "error") %> prohibited this puestos_entidad from being saved:</h2>
+
+      <ul>
+      <% @puestos_entidad.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nom_puesto, "Nombre del puesto" %><br />
+    <%= f.text_field :nom_puesto %>
+  </div>
+  <div class="actions">
+    <%= f.submit "#{ f.object.new_record? ? 'Crear puesto de la entidad': 'Actualizar puesto de la entidad'}" %>
+  </div>
+<% end %>

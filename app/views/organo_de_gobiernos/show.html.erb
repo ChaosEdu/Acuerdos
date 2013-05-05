@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nom organo:</b>
+  <%= @organo_de_gobierno.nom_organo %>
+</p>
+
+<p>
+  <b>Tipo organo de gobierno:</b>
+  <%= @organo_de_gobierno.tipo_organo_de_gobierno.nom_tipo_de_organo %>
+</p>
+
+
+<%= link_to 'Editar', edit_organo_de_gobierno_path(@organo_de_gobierno) %> |
+<%= link_to 'Regresar', organo_de_gobiernos_path %>

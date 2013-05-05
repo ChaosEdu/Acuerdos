@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @entidad_paraestatal.nom_entidad %>
+</p>
+
+<p>
+  <b>Objeto Social:</b>
+  <%= @entidad_paraestatal.objeto_social %>
+</p>
+<div id="annual">
+
+</div>
+<p>
+  <b>Marco Normativo:</b>
+  <%= @entidad_paraestatal.marco_normativo %>
+</p>
+<p>
+  <b>Tipo de Entidad:</b>
+  <%= @entidad_paraestatal.tipo_entidad.nom_tipo_entidad %>
+</p>
+<p>
+  <b>Organo de gobierno:</b>
+  <%= @entidad_paraestatal.organo_de_gobierno.nom_organo %>
+</p>
+<p>
+  <b>Secretaría:</b>
+  <%= @entidad_paraestatal.secretaria.nom_secretaria %>
+</p>
+
+<% @entidad_paraestatal.empleados.each do |empleado|%>
+    <b>Puesto:</b>
+    <p><%= empleado.puestos_entidad.nom_puesto %></p>
+    <p>  <b>Nombre:</b>
+      <%= empleado.nombre %>
+      <b>Apellido paterno:</b>
+      <%= empleado.ap_paterno %>
+      <b>Apellido materno:</b>
+      <%= empleado.ap_materno %>
+      <b>Dirección de trabajo:</b>
+      <%= empleado.dir_trabajo %>
+      <p>Teléfono:</p>
+      <% empleado.telefonos.each do |telefono| %>
+        <p><%= telefono.tipo_tel.nom_tipo_tel %> <%= telefono.num_telefono %></p>
+      <% end %>
+      <b>Emails:</b>
+      <% empleado.emails.each do |email| %>
+        <p><%= email.tipo_email.nom_tipo_email %> <%= email.correo %></p>
+      <% end %>
+      <b>Status:</b>
+      <%= empleado.activo %>
+      <b>Jefe Inmediato:</b>
+      <%= empleado.jefe_inmediato %>
+      
+    </p>
+    <%end %>
+
+<%= link_to 'Editar', edit_entidad_paraestatal_path(@entidad_paraestatal) %> |
+<%= link_to 'Regresar', entidad_paraestatals_path %>
+<%= link_to "Lista de sesiones", entidad_paraestatal_sesions_path(@entidad_paraestatal) %>

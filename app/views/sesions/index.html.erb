@@ -1,0 +1,34 @@
+<h1>Listado de sesiones</h1>
+
+<table>
+  <tr>
+    <th>Status</th>
+    <th>Fecha</th>
+    <th>Hora</th>
+    <th>Lugar</th>
+    <th>Extra ordinaria</th>
+    <th>Suplente</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sesions.each do |sesion| %>
+  <tr>
+    <td><%= sesion.status %></td>
+    <td><%= sesion.fecha %></td>
+    <td><%= sesion.hora %></td>
+    <td><%= sesion.lugar %></td>
+    <td><%= sesion.extra_ordinaria %></td>
+    <td><%=  %></td>
+    <td><%= link_to 'Mostrar', [@entidad_paraestatal, sesion] %></td>
+    <td><%= link_to 'Editar', edit_entidad_paraestatal_sesion_path(@entidad_paraestatal, sesion)  %></td>
+    <td><%= link_to 'Destruir', sesion, method: :delete, data: { confirm: 'Está seguro?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nueva sesión', new_entidad_paraestatal_sesion_path(@entidad_paraestatal) %>
+<%= link_to 'Regregar a la entidad', entidad_paraestatal_path([@entidad_paraestatal, @sesion]) %>

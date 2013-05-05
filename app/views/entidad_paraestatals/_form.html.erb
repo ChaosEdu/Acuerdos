@@ -1,0 +1,42 @@
+<%= form_for (@entidad_paraestatal) do |f| %>
+  <% if @entidad_paraestatal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@entidad_paraestatal.errors.count, "error") %> prohibited this entidad_paraestatal from being saved:</h2>
+
+      <ul>
+      <% @entidad_paraestatal.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nom_entidad, "Nombre de entidad" %><br />
+    <%= f.text_field :nom_entidad %>
+  </div>
+  <div class="field">
+    <%= f.label :objeto_social %><br />
+    <%= f.text_field :objeto_social %>
+  </div>
+  <div class="field">
+    <%= f.label :marco_normativo %><br />
+    <%= f.text_field :marco_normativo %>
+  </div>
+    <div class="field">
+    <%= f.label :tipo_entidad_id, "Tipo de entidad" %><br />
+    <%= f.select :tipo_entidad_id, TipoEntidad.all.collect {|p| [ p.nom_tipo_entidad, p.id ] }, { :include_blank => true } %>
+  </div>
+  <div class="field">
+    <%= f.label :organo_de_gobierno_id, "Organo de gobierno que rige a la entidad " %><br />
+    <%= f.select :organo_de_gobierno_id, OrganoDeGobierno.all.collect {|p| [ p.nom_organo, p.id ] }, { :include_blank => true }  %>
+  </div>
+  <div class="field">
+    <%= f.label :secretaria_id, "Secretaría" %><br />
+    <%= f.select :secretaria_id, Secretaria.all.collect {|p| [ p.nom_secretaria, p.id ] }, { :include_blank => true } %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "#{ f.object.new_record? ? 'Crear entidad paraestatal': 'Actualizar entidad paraestatal'}"%>
+  </div>
+<% end %>

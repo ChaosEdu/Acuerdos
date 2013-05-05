@@ -1,0 +1,45 @@
+<%= form_for([@entidad_paraestatal, @sesion]) do |f| %>
+  <% if @sesion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sesion.errors.count, "error") %> prohibited this sesion from being saved:</h2>
+
+      <ul>
+      <% @sesion.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :status, "Llevada a cabo" %><br />
+    <%= f.check_box :status %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha %><br />
+    <%= f.datetime_select :fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :hora %><br />
+    <%= f.time_select :hora %>
+  </div>
+  <div class="field">
+    <%= f.label :lugar %><br />
+    <%= f.text_area :lugar %>
+  </div>
+  <div class="field">
+    <%= f.label :extra_ordinaria %><br />
+    <%= f.check_box :extra_ordinaria %>
+  </div>
+  
+  
+
+  
+  <div class="actions">
+    <%= f.submit "#{ f.object.new_record? ? 'Crear sesión': 'Actualizar sesión'}"%>
+  </div>
+
+
+
+
+<% end %>

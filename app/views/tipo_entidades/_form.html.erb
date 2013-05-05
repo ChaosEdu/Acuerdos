@@ -1,0 +1,21 @@
+<%= form_for(@tipo_entidad) do |f| %>
+  <% if @tipo_entidad.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tipo_entidad.errors.count, "error") %> prohibited this tipo_entidad from being saved:</h2>
+
+      <ul>
+      <% @tipo_entidad.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nom_tipo_entidad, "Tipo de entidad" %><br />
+    <%= f.text_field :nom_tipo_entidad %>
+  </div>
+  <div class="actions">
+    <%= f.submit "#{ f.object.new_record? ? 'Crear tipo de entidad': 'Actualizar tipo de entidad'}" %>
+  </div>
+<% end %>

@@ -1,0 +1,37 @@
+<h1>Listado de empleados</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Apellido paterno</th>
+    <th>Apellido materno</th>
+    <th>Puesto en la entidad</th>
+    <th>Dirección de trabajo</th>
+    <th>Activo en la entidad</th>
+    <th>Tipo de usuario</th>
+    <th>Entidad paraestatal</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @empleados.each do |empleado| %>
+  <tr>
+    <td><%= empleado.nombre %></td>
+    <td><%= empleado.ap_paterno %></td>
+    <td><%= empleado.ap_materno %></td>
+    <td><%= empleado.puestos_entidad.nom_puesto %></td>
+    <td><%= empleado.dir_trabajo %></td>
+    <td><%= empleado.activo %></td>
+    <td><%= empleado.tipo_usuario.nom_usuario %></td>
+    <td><%= empleado.entidad_paraestatal.nom_entidad %></td>
+    <td><%= link_to 'Mostrar', empleado %></td>
+    <td><%= link_to 'Editar', edit_empleado_path(empleado) %></td>
+    <td><%= link_to 'Destruir', empleado, method: :delete, data: { confirm: '¿Está seguro que desea borrarlo?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo empleado', new_empleado_path %>

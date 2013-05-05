@@ -1,0 +1,42 @@
+<%= form_for([@sesion, @lista_acuerdo], :html => { :multipart => true }) do |f| %>
+  <% if @lista_acuerdo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lista_acuerdo.errors.count, "error") %> prohibited this lista_acuerdo from being saved:</h2>
+
+      <ul>
+      <% @lista_acuerdo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :avance %><br />
+    <%= f.text_field :avance %>
+  </div>
+  <div class="field">
+    <%= f.label :sesion %><br />
+    <%= f.text_field :sesion_id %>
+  </div>
+	Archivo actual: <%= f.object.act unless f.object.act.nil? %><br/ >
+  <div class="field">
+    <%= f.label :act %><br />
+    <%= f.file_field :act %>
+  </div>
+<!-- <%= #
+f.fields_for :acuerdos do |builder|%>
+<fieldset>
+        <%= builder.label :titulo, "Título"%><br />
+        <%= builder.text_area :titulo %><br />
+        <%= builder.label :detalles, "Detalles"%><br />
+        <%= builder.text_area :detalles %><br />
+</fieldset>
+<% #
+end %> -->
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

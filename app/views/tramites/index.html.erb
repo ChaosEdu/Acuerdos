@@ -1,0 +1,25 @@
+<h1>Listado de trámites</h1>
+
+<table>
+  <tr>
+    <th>Nombre doc</th>
+    <th>Entidad paraestatal</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tramites.each do |tramite| %>
+  <tr>
+    <td><%= tramite.nombre_doc %></td>
+    <td><%= tramite.entidad_paraestatal_id %></td>
+    <td><%= link_to 'Mostrar', tramite %></td>
+    <td><%= link_to 'Editar', edit_tramite_path(tramite) %></td>
+    <td><%= link_to 'Destruir', tramite, method: :delete, data: { confirm: 'Está seguro?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo trámite', new_tramite_path %>

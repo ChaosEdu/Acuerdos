@@ -1,0 +1,21 @@
+<%= form_for(@tipo_usuario) do |f| %>
+  <% if @tipo_usuario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tipo_usuario.errors.count, "error") %> prohibited this tipo_usuario from being saved:</h2>
+
+      <ul>
+      <% @tipo_usuario.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nom_usuario, "Tipo de Usuario" %><br />
+    <%= f.text_field :nom_usuario %>
+  </div>
+  <div class="actions">
+    <%= f.submit "#{ f.object.new_record? ? 'Crear tipo de usuario': 'Actualizar tipo de usuario'}" %>
+  </div>
+<% end %> 

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Correo:</b>
+  <%= @email.correo %>
+</p>
+
+<p>
+  <b>Tipo de email:</b>
+  <%= @email.tipo_email.nom_tipo_email %>
+</p>
+
+<p>
+  <b>Empleado:</b>
+  <%= @email.empleado.nombre %>
+</p>
+
+
+<%= link_to 'Editar', edit_email_path(@email) %> |
+<%= link_to 'Regresar a listado de emails', emails_path %>

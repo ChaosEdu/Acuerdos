@@ -1,0 +1,23 @@
+<h1>Listado de tipo de emails</h1>
+
+<table>
+  <tr>
+    <th>Tipo email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tipo_emails.each do |tipo_email| %>
+  <tr>
+    <td><%= tipo_email.nom_tipo_email %></td>
+    <td><%= link_to 'Mostrar', tipo_email %></td>
+    <td><%= link_to 'Editar', edit_tipo_email_path(tipo_email) %></td>
+    <td><%= link_to 'Destruir', tipo_email, method: :delete, data: { confirm: '¿Está seguro que desea borrarlo?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo tipo de email', new_tipo_email_path %>

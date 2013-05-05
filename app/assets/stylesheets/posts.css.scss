@@ -1,0 +1,19 @@
+#Agregar {
+	position: relative;
+	text-align: center;
+	border-bottom: solid 1px #6f3018;
+	border-top: solid 1px #ffffff;
+	background: #C0C0C0;
+	height: auto;
+	width: auto;
+	padding: 8 1.75em 0 1.75em;
+
+	a {
+		position: relative;
+		text-align: center;
+		text-decoration: none;
+		color: #ff0000;
+		text-shadow: 0 1px 0px #6f3018;
+		font-style: italic;
+	}
+}

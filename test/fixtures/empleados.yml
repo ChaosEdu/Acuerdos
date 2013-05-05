@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nombre: MyString
+  ap_paterno: MyString
+  ap_materno: MyString
+  puesto: MyString
+  dir_trabajo: MyString
+  jefe_inmediato: MyString
+  activo: false
+  tipo_usuario_id: 1
+  entidad_paraestatal_id: 1
+
+two:
+  nombre: MyString
+  ap_paterno: MyString
+  ap_materno: MyString
+  puesto: MyString
+  dir_trabajo: MyString
+  jefe_inmediato: MyString
+  activo: false
+  tipo_usuario_id: 1
+  entidad_paraestatal_id: 1

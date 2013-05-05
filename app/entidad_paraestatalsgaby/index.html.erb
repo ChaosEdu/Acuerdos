@@ -1,0 +1,32 @@
+<legend>Listado de entidades paraestatales</legend>
+<div class="container">
+    <table class="table table-hover">
+	<thead>
+        <th>Nombre</th>
+        <th>Tipo de Entidad</th>
+        <th>Órgano de Gobierno</th>
+        <th>Secretaría</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </thead>
+ <% @entidad_paraestatals.each do |entidad_paraestatal| %>
+	<tbody>
+	 <tr>
+		<td><%= entidad_paraestatal.nom_entidad %></td>
+		<td><%= entidad_paraestatal.objeto_social %></td>
+		<td><%= entidad_paraestatal.marco_normativo %></td>
+		<td><%= entidad_paraestatal.tipo_entidad.nom_tipo_entidad %></td>
+		<td><%= entidad_paraestatal.organo_de_gobierno.nom_organo %></td>
+		<td><%= entidad_paraestatal.secretaria.nom_secretaria %></td>
+		<td><%= link_to ' ', entidad_paraestatal ,  :class => "icon-th-list" %></td>
+		<td><%= link_to ' ', edit_entidad_paraestatal_path(entidad_paraestatal), :class => "icon-edit"%></td>
+		<td><%= link_to ' ', entidad_paraestatal, method: :delete, data: { confirm: '¿Está seguro que desea borrarlo?' } , :class => "icon-remove"%></td>
+	  </tr>
+	</tbody>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'Nueva entidad', new_entidad_paraestatal_path %>

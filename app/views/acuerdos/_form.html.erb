@@ -1,0 +1,34 @@
+<%= form_for(@acuerdo) do |f| %>
+  <% if @acuerdo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@acuerdo.errors.count, "error") %> prohibited this acuerdo from being saved:</h2>
+
+      <ul>
+      <% @acuerdo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :titulo %><br />
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :detalles %><br />
+    <%= f.text_area :detalles %>
+  </div>
+  <div class="field">
+    <%= f.label :avance_acuerdo %><br />
+    <%= f.text_area :avance_acuerdo %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :lista_acuerdo_id %><br />
+    <%= f.number_field :lista_acuerdo_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit "#{ f.object.new_record? ? 'Crear acuerdo': 'Actualizar acuerdo'}" %>
+  </div>
+<% end %>
