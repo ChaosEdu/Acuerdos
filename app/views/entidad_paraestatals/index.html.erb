@@ -14,11 +14,11 @@
 	<tbody>
 	 <tr>
 		<td><%= entidad_paraestatal.nom_entidad %></td>
-		<td><%= entidad_paraestatal.tipo_entidad.nom_tipo_entidad %></td>
-		<td><%= entidad_paraestatal.organo_de_gobierno.nom_organo %></td>
-		<td><%= entidad_paraestatal.secretaria.nom_secretaria %></td>
-		<td><%= link_to '  ', entidad_paraestatal ,  :class => "icon-th-list" %></td>
-		<td><%= link_to '  ', edit_entidad_paraestatal_path(entidad_paraestatal), :class => "icon-edit"%></td>
+		<td><%= entidad_paraestatal.try(:tipo_entidad).try(:nom_tipo_entidad) %></td>
+		<td><%= entidad_paraestatal.try(:organo_de_gobierno).try(:nom_organo) %></td>
+		<td><%= entidad_paraestatal.try(:secretaria).try(:nom_secretaria) %></td>
+		<td><%= link_to 'Mostrar', entidad_paraestatal ,  :class => "icon-th-list" %></td>
+		<td><%= link_to 'Editar', edit_entidad_paraestatal_path(entidad_paraestatal), :class => "icon-edit"%></td>
 		<td><%= link_to ' Destruir ', entidad_paraestatal , method: :delete, data: { confirm: '¿Está seguro que desea borrarlo?' }  %></td>
 	  </tr>
 	</tbody>

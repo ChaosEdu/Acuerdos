@@ -1,6 +1,6 @@
 class ListaAcuerdo < ActiveRecord::Base
   resourcify
-  belongs_to :sesion, inverse_of: :lista_acuerdo
+  belongs_to :sesion#, inverse_of: :lista_acuerdo
   has_many :acuerdos
   has_many :comments, :as => :commentable
   accepts_nested_attributes_for :acuerdos, :allow_destroy => true, reject_if: :all_blank 
@@ -10,4 +10,10 @@ class ListaAcuerdo < ActiveRecord::Base
                   :path => ":rails_root/public/assets/lista_acuerdos/:id/:style/:basename.:extension"
 
   validates_attachment_content_type :act, :content_type => ['image/jpeg', 'image/png', 'application/pdf']
+  
+  
+  def update_avance
+    self.avance = acuerdos.average('avance_acuerdo')
+    save
+  end
 end

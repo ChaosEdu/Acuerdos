@@ -1,5 +1,7 @@
-<legend>Nueva sesión</legend>
+<%= link_to entidad_paraestatal_sesions_path(@entidad_paraestatal) do %>
+	<i class="icon-arrow-left"></i> Regresar
+<% end %>
+
+<h3>Nueva sesión</h3>
 
 <%= render 'form' %>
-
-<%= link_to '  ', entidad_paraestatal_sesions_path(@entidad_paraestatal), :class => "icon-arrow-left" %>

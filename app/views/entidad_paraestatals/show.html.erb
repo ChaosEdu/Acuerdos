@@ -15,13 +15,13 @@
                     <p><%= @entidad_paraestatal.nom_entidad %></p>
 					
                     <strong>Tipo de entidad:</strong><br>
-                    <p><%= @entidad_paraestatal.tipo_entidad.nom_tipo_entidad %></p>
+                    <p><%= @entidad_paraestatal.try(:tipo_entidad).try(:nom_tipo_entidad) %></p>
 					
                     <strong>Órgano de gobierno:</strong><br>
-                    <p><%= @entidad_paraestatal.organo_de_gobierno.nom_organo %></p>
+                    <p><%= @entidad_paraestatal.try(:organo_de_gobierno).try(:nom_organo) %></p>
 					
                     <strong>Secretaría:</strong><br>
-                    <p><%= @entidad_paraestatal.secretaria.nom_secretaria %></p>
+                    <p><%= @entidad_paraestatal.try(:secretaria).try(:nom_secretaria) %></p>
                 </div>
                 <div class = "tab-pane fade" id = "tab2">
                   <p><%= @entidad_paraestatal.objeto_social %></p>
@@ -32,7 +32,7 @@
                   :title => "Avance",
                   :bg => 'efefef',
                   :legend => ['first data set label', 'second data set label'],
-                  :data => [10, 30, 120, 45, 72])%>" />
+                  :data => @chart_data)%>" />
               
               
                   </p>

@@ -1,70 +1,107 @@
+<h2>Sesión <%= @sesion.sesion_contador %></h2>
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Status:</b>
-  <%= @sesion.status %>
-</p>
+<dl class="dl-horizontal">
+  <dt>Status</dt>
+  <dd><%= @sesion.status_string %></dd>
+</dl>
 
-<p>
-  <b>Fecha:</b>
-  <%= @sesion.fecha %>
-</p>
+<dl class="dl-horizontal">
+  <dt>Fecha</dt>
+  <dd><%= @sesion.fecha %></dd>
+</dl>
 
-<p>
-  <b>Hora:</b>
-  <%= @sesion.hora %>
-</p>
+<dl class="dl-horizontal">
+  <dt>Hora</dt>
+  <dd><%= @sesion.hora %></dd>
+</dl>
 
-<p>
-  <b>Lugar:</b>
-  <%= @sesion.lugar %>
-</p>
+<dl class="dl-horizontal">
+  <dt>Lugar</dt>
+  <dd><%= @sesion.lugar %></dd>
+</dl>
 
-<p>
-  <b>Extra ordinaria:</b>
-  <%= @sesion.extra_ordinaria %>
-</p>
+<dl class="dl-horizontal">
+  <dt>Extra ordinaria</dt>
+  <dd><%= @sesion.extra_ordinaria %></dd>
+</dl>
 
-<p>
-  <b>Entidad paraestatal:</b>
-  <%= @sesion.entidad_paraestatal.nom_entidad %>
-</p>
-<%= image_tag @bar %>
+<dl class="dl-horizontal">
+  <dt>Entidad paraestatal</dt>
+  <dd><%= @sesion.try(:entidad_paraestatal).try(:nom_entidad) %></dd>
+</dl>
 
-<%= nested_form_for [@entidad_paraestatal, @sesion] do |f| %>
-          
-          <%= f.fields_for :suplentes do |q| %>
-        
-        <%= q.fields_for :empleados do |g| %>
-          <%= g.label :nombre%>
-          <%= g.text_field :nombre %>
-          
-          <%= g.label :ap_paterno, "Apellido paterno" %>
-          <%= g.text_field :ap_paterno %>
-          
-          <%= g.label :ap_materno,  "Apellido materno" %>
-          <%= g.text_field :ap_materno %>
-          
-          <%= g.label :dir_trabajo, "Dirección de Trabajo" %>
-          <%= g.text_field :dir_trabajo %>
-          <%= g.fields_for :telefonos do |t|%>
-                <%= t.label :num_telefono, "Número de teléfono" %>
-                <%= t.text_field :num_telefono %>
-            <%end%>
-              <%= g.fields_for :emails do |k|%>
-                <%= k.label :correo%>
-                <%= k.text_field :correo %>
-            <%end%>
-            
-        <% end %>
-        <%= f.link_to_remove "Remover Suplente" %> 
-        <% end %>
+<hr />
 
-        <%= f.link_to_add "Agregar Suplente", :suplentes %>
-        <%= f.submit "Guardar" %>
+<h2><small>Datos del suplente</small></h2>
+
+<%= nested_form_for [@entidad_paraestatal, @sesion], html: {class: 'form-horizontal'} do |sesion_form| %>
+	<%= sesion_form.fields_for :suplente do |suplente_form| %>
+		<%= suplente_form.fields_for :empleado do |empleado_form| %>
+			
+			<div class="control-group">		
+				<%= empleado_form.label :nombre, class: 'control-label' %>
+				<div class="controls">
+					<%= empleado_form.text_field :nombre, placeholder: 'Nombre ' %>
+				</div>
+			</div>
+			
+			<div class="control-group">
+				<%= empleado_form.label :ap_paterno, "Apellido paterno", class: 'control-label' %>
+				<div class="controls">
+					<%= empleado_form.text_field :ap_paterno, placeholder: 'Apellido paterno ' %>
+				</div>
+			</div>
+			
+			<div class="control-group">
+				<%= empleado_form.label :ap_materno,  "Apellido materno", class: 'control-label' %>
+				<div class="controls">
+					<%= empleado_form.text_field :ap_materno, placeholder: 'Apellido materno ' %>
+				</div>
+			</div>
+			
+			<div class="control-group">
+				<%= empleado_form.label :dir_trabajo, "Dirección de Trabajo", class: 'control-label' %>
+				<div class="controls">
+					<%= empleado_form.text_area :dir_trabajo, rows: 4 %>
+				</div>
+			</div>
+			
+			<h3><small>Datos de Contacto</small></h3>
+			
+			<%= empleado_form.fields_for :telefonos do |telefono_form|%>
+				<div class="control-group">
+					<%= telefono_form.label :num_telefono, "Número de teléfono", class: 'control-label' %>
+				
+					<div class="controls">
+						<%= telefono_form.text_field :num_telefono %>
+						<%= telefono_form.select :tipo_tel_id, options_from_collection_for_select(TipoTel.all, 'id', 'nom_tipo_tel') %>
+						<%= telefono_form.link_to_remove "Quitar Telefono", class: 'btn btn-mini' %>
+					</div>
+				</div>
+			<% end %>
+			<%= empleado_form.link_to_add "Agregar Telefono", :telefonos, class: 'btn btn-mini' %>
+
+			<%= empleado_form.fields_for :emails do |email_form| %>
+				<div class="control-group">
+					<%= email_form.label :correo, class: 'control-label' %>
+					<div class="controls">
+						<%= email_form.text_field :correo %>
+						<%= email_form.select :tipo_email_id, options_from_collection_for_select(TipoEmail.all, 'id', 'nom_tipo_email') %>
+						<%= email_form.link_to_remove "Quitar Telefono", class: 'btn btn-mini' %>
+					</div>
+				</div>
+			<% end %>
+			<%= empleado_form.link_to_add "Agregar Email", :emails, class: 'btn btn-mini' %>
+
+		<% end %>
+		<p><br/><%= suplente_form.link_to_remove "Remover Suplente", class: 'btn btn-mini btn-danger btn-block' %> </p>
+	<% end %>
+	
+	<%= sesion_form.submit "Actualizar Sesión", class: 'btn btn-success' %>
+	
 <% end %>
-
 
 <%= link_to "Lista de acuerdos", sesion_lista_acuerdos_path(@sesion) %>
 <%= link_to 'Editar', edit_entidad_paraestatal_sesion_path(@sesion) %> |

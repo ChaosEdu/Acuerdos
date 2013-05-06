@@ -11,6 +11,10 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery_ujs
+//= require bootstrap.min
+//= require morris.min
+//= require raphael
 //= require jquery_nested_form
 //= require_tree .
 

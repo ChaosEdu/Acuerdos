@@ -8,9 +8,10 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require jquery.ui.all
- *= require default
  *= require_self
+ *= require bootstrap.min
+ *= require bootstrap-responsive.min
+ *= require morris
  *= require_tree .
  */
 
@@ -64,3 +65,76 @@ body {
 	background-image: url('bggob.png');
 }
 */
+
+header img{
+
+	display: inline-block
+
+}
+
+
+
+header{
+
+	background: url('header.png');
+
+	background-repeat: repeat-x;
+
+	background-position: bottom;
+
+	width: 100%;
+
+	z-index: 100;
+
+	height: 100px;
+
+}
+
+header img{
+	display: inline-block;
+	height: 70px;
+}
+
+.span9, .span6{
+
+	text-align: center;
+
+}
+
+.lead{
+
+	text-align: center;
+
+}
+
+.header-images{
+
+	
+
+}
+
+.login{
+
+	background:#FFFFFF;
+
+    box-shadow:1px 1px 5px rgba(255,255,255,1);
+
+    font-size:14px;
+
+    text-align:center;
+
+    position:absolute;
+
+    right:20px;
+
+    top:0;
+
+    width:150px;
+
+}
+
+.container{
+
+	margin-top: 10px;
+
+}

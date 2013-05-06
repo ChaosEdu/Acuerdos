@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130429061012) do
+ActiveRecord::Schema.define(:version => 20130506043249) do
 
   create_table "acuerdos", :force => true do |t|
     t.string   "titulo"
@@ -124,8 +124,9 @@ ActiveRecord::Schema.define(:version => 20130429061012) do
     t.boolean  "extra_ordinaria"
     t.integer  "entidad_paraestatal_id"
     t.integer  "suplente_id"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.integer  "sesion_contador",        :default => 1
   end
 
   add_index "sesions", ["entidad_paraestatal_id"], :name => "index_sesions_on_entidad_paraestatal_id"

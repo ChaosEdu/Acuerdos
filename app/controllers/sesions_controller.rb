@@ -15,6 +15,8 @@ class SesionsController < ApplicationController
   # GET /sesions/1.json
   def show
     @sesion = Sesion.where(entidad_paraestatal_id: @entidad_paraestatal.id).find(params[:id])
+    @sesion.suplente ||= Suplente.new
+    @sesion.suplente.empleado ||= Empleado.new
 
     #@emails = Email.all
     respond_to do |format|

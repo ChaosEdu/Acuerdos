@@ -13,7 +13,9 @@ def index
   # GET /entidad_paraestatals/1.json
   def show
     @entidad_paraestatal = EntidadParaestatal.includes(:tipo_entidad, :organo_de_gobierno, :secretaria, empleados: [:puestos_entidad]).find(params[:id])
-    @sesion = Sesion.where(:entidad_paraestatal_id => @entidad_paraestatal.id)
+    @sesions = Sesion.where(:entidad_paraestatal_id => @entidad_paraestatal.id).all
+    @chart_data = @sesions.map{|s|  s.lista_acuerdos.map{|l| l.avance.to_f } }.flatten!
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @entidad_paraestatal }

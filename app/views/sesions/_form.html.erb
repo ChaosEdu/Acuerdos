@@ -1,4 +1,4 @@
-<%= form_for([@entidad_paraestatal, @sesion]) do |f| %>
+<%= form_for([@entidad_paraestatal, @sesion], html: { class: 'form-horizontal'} ) do |f| %>
   <% if @sesion.errors.any? %>
     <div id= "error_explanation">
       <h2><%= pluralize(@sesion.errors.count, "error") %> prohibited this sesion from being saved:</h2>
@@ -10,33 +10,44 @@
       </ul>
     </div>
   <% end %>
- <div class="container">
-    <legend>Sesiones</legend>
-	<form>
-		<div class="field">
-        <strong><%= f.label :status, "Llevada a cabo" %></strong><br />
-		<%= f.check_box :status %><br />
+	<div class="container">
+		<div class="control-group">
+			<%= f.label :status, "Llevada a cabo", class: 'control-label' %>
+			<div class="controls">
+				<%= f.check_box :status %>
+			</div>
 		</div>
-		<div class="field">
-			<strong><%= f.label :fecha %></strong><br />
-			<%= f.datetime_select :fecha %>
+		
+		<div class="control-group">
+			<%= f.label :fecha, class: 'control-label' %>
+			<div class="controls">
+				<%= f.datetime_select :fecha %>
+			</div>
 		</div>
-		<div class="field">
-			<strong><%= f.label :hora %></strong><br />
-			<%= f.time_select :hora %>
+		
+		<div class="control-group">
+			<%= f.label :hora, class: 'control-label' %>
+			<div class="controls">
+				<%= f.time_select :hora %>
+			</div>
 		</div>
-				
-		<div class="field">
-			<strong><%= f.label :lugar %></strong><br />
-			<%= f.text_area :lugar , :class => "input-xxlarge", :rows => "2" %>
+			
+		<div class="control-group">
+			<%= f.label :lugar, class: 'control-label' %>
+			<div class="controls">
+				<%= f.text_area :lugar , :class => "input-xxlarge", :rows => "2" %>
+			</div>
 		</div>
-		<div class="field">
-			<%= f.label :extra_ordinaria %><br />
-			<%= f.check_box :extra_ordinaria %>
-		</div>  
+		
+		<div class="control-group">
+			<%= f.label :extra_ordinaria, class: 'control-label' %>
+			<div class="controls">
+				<%= f.check_box :extra_ordinaria %>
+			</div>	
+		</div> 
+		 
 		<div class="actions">
 			<%= f.submit "#{ f.object.new_record? ? 'Crear sesión': 'Actualizar sesión'}" , :class=>"btn"%>
 		</div>
-        </form>
 	</div>
 <% end %>

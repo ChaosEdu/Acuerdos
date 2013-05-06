@@ -4,5 +4,8 @@ class Acuerdo < ActiveRecord::Base
   belongs_to :lista_acuerdo
   
   has_many :comments, :as => :commentable
+  
+  delegate :update_avance, to: :lista_acuerdo
+  after_save :update_avance
 end
  
