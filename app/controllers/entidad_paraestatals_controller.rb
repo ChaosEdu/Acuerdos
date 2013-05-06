@@ -13,7 +13,7 @@ def index
   # GET /entidad_paraestatals/1.json
   def show
     @entidad_paraestatal = EntidadParaestatal.includes(:tipo_entidad, :organo_de_gobierno, :secretaria, empleados: [:puestos_entidad]).find(params[:id])
-
+    @sesion = Sesion.where(:entidad_paraestatal_id => @entidad_paraestatal.id)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @entidad_paraestatal }

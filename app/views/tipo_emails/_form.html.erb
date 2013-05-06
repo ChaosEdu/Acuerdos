@@ -12,10 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nom_tipo_email, "Tipo de email" %><br />
+    <strong> <%= f.label :nom_tipo_email, "Tipo de email" %></strong><br />
     <%= f.text_field :nom_tipo_email %>
   </div>
   <div class="actions">
-    <%= f.submit custom_submit(f.object, 'Crear tipo de email', 'Actualizar tipo de email') %>
+    <%= f.submit custom_submit(f.object, 'Crear tipo de email', 'Actualizar tipo de email'), :class => "btn" %>
   </div>
 <% end %>

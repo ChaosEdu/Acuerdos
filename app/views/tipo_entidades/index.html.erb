@@ -1,19 +1,19 @@
-<h1>Listado de los tipos de entidades</h1>
+<legend>Listado de los tipos de entidades</legend>
 
-<table>
-  <tr>
+<table class="table table-hover">
+  <thead>
     <th>Nombre del tipo de entidad</th>
     <th></th>
     <th></th>
     <th></th>
-  </tr>
+  </thead>
 
 <% @tipo_entidades.each do |tipo_entidad| %>
   <tr>
     <td><%= tipo_entidad.nom_tipo_entidad %></td>
-    <td><%= link_to 'Mostrar', tipo_entidad %></td>
-    <td><%= link_to 'Editar', edit_tipo_entidad_path(tipo_entidad) %></td>
-    <td><%= link_to 'Destruir', tipo_entidad, method: :delete, data: { confirm: 'Está seguro que desea borrarlo?' } %></td>
+    <td><%= link_to '  ', tipo_entidad, :class =>"icon-th-list" %></td>
+    <td><%= link_to '  ', edit_tipo_entidad_path(tipo_entidad) , :class => "icon-edit"%></td>
+    <td><%= link_to '  ', tipo_entidad, method: :delete, data: { confirm: 'Está seguro que desea borrarlo?' } , :class => "icon-remove"%></td>
   </tr>
 <% end %>
 </table>

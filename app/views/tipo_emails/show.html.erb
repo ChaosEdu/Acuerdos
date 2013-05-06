@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Tipo email:</b>
+  <strong>Tipo email:</strong>
   <%= @tipo_email.nom_tipo_email %>
 </p>
 
 
-<%= link_to 'Editar', edit_tipo_email_path(@tipo_email) %> |
-<%= link_to 'Regresar', tipo_emails_path %>
+<%= link_to '   ', edit_tipo_email_path(@tipo_email), :class =>"icon-edit" %> |
+<%= link_to '   ', tipo_emails_path, :class => "icon-arrow-left" %>

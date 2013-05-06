@@ -12,31 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :avance %><br />
+    <strong><%= f.label :avance %></strong><br />
     <%= f.text_field :avance %>
   </div>
-  <div class="field">
-    <%= f.label :sesion %><br />
-    <%= f.text_field :sesion_id %>
-  </div>
+ 
 	Archivo actual: <%= f.object.act unless f.object.act.nil? %><br/ >
   <div class="field">
-    <%= f.label :act %><br />
+    <strong><%= f.label :act %></strong><br />
     <%= f.file_field :act %>
   </div>
-<!-- <%= #
-f.fields_for :acuerdos do |builder|%>
-<fieldset>
-        <%= builder.label :titulo, "Título"%><br />
-        <%= builder.text_area :titulo %><br />
-        <%= builder.label :detalles, "Detalles"%><br />
-        <%= builder.text_area :detalles %><br />
-</fieldset>
-<% #
-end %> -->
+
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Actualizar Lista de Acuerdos", :class => "btn" %>
   </div>
 
 <% end %>

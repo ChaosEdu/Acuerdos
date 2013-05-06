@@ -1,6 +1,6 @@
-<h1>Editar lista de acuerdos</h1>
+<legend>Editar lista de acuerdos</legend>
 
 <%= render 'form' %>
 
-<%= link_to 'Mostrar acuerdos', [@sesion, @lista_acuerdo] %> |
-<%= link_to 'Regresar al índice de listas acuerdos', sesion_lista_acuerdos_path(@sesion) %>
+<i class="icon-th-list"></i><%= link_to 'Mostrar',  [@sesion, @lista_acuerdo] %> |
+<%= link_to 'Regresar', sesion_lista_acuerdos_path(@sesion)%>

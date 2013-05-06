@@ -12,14 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nom_organo, "Nombre del Órgano" %><br />
+    <strong><%= f.label :nom_organo, "Nombre del Órgano" %></strong><br />
     <%= f.text_field :nom_organo %>
   </div>
   <div class="field">
-    <%= f.label :tipo_organo_de_gobierno_id, "Tipo del órgano de gobierno" %><br />
+    <strong><%= f.label :tipo_organo_de_gobierno_id, "Tipo del órgano de gobierno" %></strong><br />
     <%= f.select :tipo_organo_de_gobierno_id, TipoOrganoDeGobierno.all.collect {|p| [ p.nom_tipo_de_organo, p.id ] }, { :include_blank => true }  %>
   </div>
   <div class="actions">
-    <%= f.submit "#{ f.object.new_record? ? 'Crear Órgano de gobierno': 'Actualizar Órgano de gobierno'}" %>
+    <%= f.submit "#{ f.object.new_record? ? 'Crear Órgano de gobierno': 'Actualizar Órgano de gobierno'}" , :class=>"btn" %>
   </div>
 <% end %>

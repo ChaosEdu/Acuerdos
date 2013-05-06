@@ -1,19 +1,19 @@
-<h1>Listado de tipo de emails</h1>
+<legend>Listado de tipo de emails</legend>
 
-<table>
-  <tr>
+<table class="table table-hover">
+  <thead>
     <th>Tipo email</th>
     <th></th>
     <th></th>
     <th></th>
-  </tr>
+  </thead>
 
 <% @tipo_emails.each do |tipo_email| %>
   <tr>
     <td><%= tipo_email.nom_tipo_email %></td>
-    <td><%= link_to 'Mostrar', tipo_email %></td>
-    <td><%= link_to 'Editar', edit_tipo_email_path(tipo_email) %></td>
-    <td><%= link_to 'Destruir', tipo_email, method: :delete, data: { confirm: '¿Está seguro que desea borrarlo?' } %></td>
+    <td><%= link_to '   ', tipo_email, :class =>"icon-th-list" %></td>
+    <td><%= link_to '   ', edit_tipo_email_path(tipo_email), :class =>"icon-edit" %></td>
+    <td><%= link_to '   ', tipo_email, method: :delete, data: { confirm: '¿Está seguro que desea borrarlo?' }, :class => "icon-remove" %></td>
   </tr>
 <% end %>
 </table>

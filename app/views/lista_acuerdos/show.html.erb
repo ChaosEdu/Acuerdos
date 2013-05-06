@@ -1,36 +1,42 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Avance:</b>
+  <strong>Avance:</strong>
   <%= @lista_acuerdo.avance %>
 </p>
 
 
 <p>
-  <b>Act:</b>
+  <strong>Act:</strong>
   <%= @lista_acuerdo.act %>
 </p>
 
-<%= nested_form_for [@sesion, @lista_acuerdo]  do |f| %>
+<%= nested_form_for [@sesion, @lista_acuerdo], :html =>{:class => "form-horizontal"}  do |f| %>
         
         <%= f.fields_for :acuerdos do |g| %>
-	        <%= g.label :titulo%>
-	        <%= g.text_field :titulo %>
-	        <%= g.label :detalles %>
-	        <%= g.text_field :detalles %>
-          <%= g.label :avance_acuerdo %>
-          <%= g.text_field :avance_acuerdo %>
-	        <%= g.link_to_remove "Remover acuerdo" %>
- 	  			 			 
-	        
+
+        <div class="control-group">
+          <div class="control-label"> Título:</div>
+          <div class="controls"><%= g.text_field :titulo , :placeholder=>"Título" %> </div>
+      </div>
+      <div class="control-group">
+          <div class="control-label">Detalles:</div>
+          <div class="controls"><%= g.text_field :detalles , :placeholder=>"Detalles" %> </div>
+      </div>
+      <div class="control-group">
+          <div class="control-label">Avance del Acuerdo:</div>
+          <div class="controls"><%= g.text_field :avance_acuerdo , :placeholder=>"Avance del Acuerdo" %> </div>
+          <%= g.link_to_remove "  " , :class=>"icon-remove" %>
+      </div>
+   
         
         <% end %>
-          <%= f.link_to_add "Agregar", :acuerdos %>
-        <%= f.submit "Guardar" %>
+          <%= f.link_to_add "Agregar", :acuerdos , :class =>"btn"%>
+        <%= f.submit "Guardar" , :class=>"btn"%>
 
 	
 <% end %>
 
 
-<%= link_to 'Editar lista de acuerdos', edit_sesion_lista_acuerdo_path(@sesion, @lista_acuerdo) %> |
-<%= link_to 'Regresar al listas de acuerdos de la entidad', sesion_lista_acuerdos_path(@sesion) %>
+<i class="icon-edit"></i><%= link_to 'Editar', edit_sesion_lista_acuerdo_path(@sesion, @lista_acuerdo)  %> |
+<%= link_to 'Regresar', sesion_lista_acuerdos_path(@sesion) %>

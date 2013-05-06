@@ -1,20 +1,20 @@
 <p id="notice"><%= notice %></p>
-
+<legend>Mostrar Acuerdo</legend>
 <p>
-  <b>Titulo:</b>
+  <strong><b>Titulo:</strong></b>
   <%= @acuerdo.titulo %>
 </p>
 
 <p>
-  <b>Detalles:</b>
+  <strong><b>Detalles:</strong></b>
   <%= @acuerdo.detalles %>
 </p>
 
 <p>
-  <b>Lista acuerdo:</b>
+  <strong><b>Lista acuerdo:</strong></b>
   <%= @acuerdo.lista_acuerdo_id %>
 </p>
 
 
-<%= link_to 'Editar', edit_acuerdo_path(@acuerdo) %> |
-<%= link_to 'Regresar', acuerdos_path %>
+<%= link_to '  ', edit_acuerdo_path(@acuerdo) , :class => "icon-edit"%> |
+<%= link_to '  ', acuerdos_path , :class => "icon-remove"%>

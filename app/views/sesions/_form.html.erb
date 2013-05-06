@@ -1,6 +1,6 @@
 <%= form_for([@entidad_paraestatal, @sesion]) do |f| %>
   <% if @sesion.errors.any? %>
-    <div id="error_explanation">
+    <div id= "error_explanation">
       <h2><%= pluralize(@sesion.errors.count, "error") %> prohibited this sesion from being saved:</h2>
 
       <ul>
@@ -10,36 +10,33 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :status, "Llevada a cabo" %><br />
-    <%= f.check_box :status %>
-  </div>
-  <div class="field">
-    <%= f.label :fecha %><br />
-    <%= f.datetime_select :fecha %>
-  </div>
-  <div class="field">
-    <%= f.label :hora %><br />
-    <%= f.time_select :hora %>
-  </div>
-  <div class="field">
-    <%= f.label :lugar %><br />
-    <%= f.text_area :lugar %>
-  </div>
-  <div class="field">
-    <%= f.label :extra_ordinaria %><br />
-    <%= f.check_box :extra_ordinaria %>
-  </div>
-  
-  
-
-  
-  <div class="actions">
-    <%= f.submit "#{ f.object.new_record? ? 'Crear sesión': 'Actualizar sesión'}"%>
-  </div>
-
-
-
-
+ <div class="container">
+    <legend>Sesiones</legend>
+	<form>
+		<div class="field">
+        <strong><%= f.label :status, "Llevada a cabo" %></strong><br />
+		<%= f.check_box :status %><br />
+		</div>
+		<div class="field">
+			<strong><%= f.label :fecha %></strong><br />
+			<%= f.datetime_select :fecha %>
+		</div>
+		<div class="field">
+			<strong><%= f.label :hora %></strong><br />
+			<%= f.time_select :hora %>
+		</div>
+				
+		<div class="field">
+			<strong><%= f.label :lugar %></strong><br />
+			<%= f.text_area :lugar , :class => "input-xxlarge", :rows => "2" %>
+		</div>
+		<div class="field">
+			<%= f.label :extra_ordinaria %><br />
+			<%= f.check_box :extra_ordinaria %>
+		</div>  
+		<div class="actions">
+			<%= f.submit "#{ f.object.new_record? ? 'Crear sesión': 'Actualizar sesión'}" , :class=>"btn"%>
+		</div>
+        </form>
+	</div>
 <% end %>

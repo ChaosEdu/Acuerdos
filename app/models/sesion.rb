@@ -9,5 +9,5 @@ class Sesion < ActiveRecord::Base
   accepts_nested_attributes_for :suplentes
   
   attr_accessible :_destroy	and attr_accessor :_destroy
-  attr_accessible :extra_ordinaria, :empleados_attributes, :fecha,:hora, :lugar, :status, :entidad_paraestatal_id, :suplente_id, :lista_acuerdos_attributes, :suplentes_attributes, :allow_destroy => true	
+  attr_accessible :extra_ordinaria, :empleados, :fecha,:hora, :lugar, :status, :entidad_paraestatal_id, :suplente_id, :lista_acuerdos_attributes, :suplentes_attributes, :allow_destroy => true	
 end

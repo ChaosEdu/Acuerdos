@@ -1,6 +1,6 @@
-<h1>Listado de puestos de las entidades</h1>
+<legend>Listado de puestos de las entidades</legend>
 
-<table>
+<table class="table table-hover">
   <tr>
     <th>Nombre del puesto</th>
     <th></th>
@@ -11,9 +11,9 @@
 <% @puestos_entidads.each do |puestos_entidad| %>
   <tr>
     <td><%= puestos_entidad.nom_puesto %></td>
-    <td><%= link_to 'Mostrar', puestos_entidad %></td>
-    <td><%= link_to 'Editar', edit_puestos_entidad_path(puestos_entidad) %></td>
-    <td><%= link_to 'Destruir', puestos_entidad, method: :delete, data: { confirm: 'Está seguro?' } %></td>
+    <td><%= link_to '   ', puestos_entidad, :class=>"icon-th-list" %></td>
+    <td><%= link_to '   ', edit_puestos_entidad_path(puestos_entidad), :class=>"icon-edit" %></td>
+    <td><%= link_to '   ', puestos_entidad, method: :delete, data: { confirm: 'Está seguro?' } , :class => "icon-remove"%></td>
   </tr>
 <% end %>
 </table>

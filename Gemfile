@@ -28,7 +28,10 @@ gem 'paperclip'
 gem 'node'
 gem 'cancan'
 gem 'rolify'
-gem 'googlecharts'
+gem 'googlecharts', :require => "gchart"
+gem 'gchart'
+
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

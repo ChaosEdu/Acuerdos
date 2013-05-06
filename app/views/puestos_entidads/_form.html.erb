@@ -12,10 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nom_puesto, "Nombre del puesto" %><br />
+    <strong><%= f.label :nom_puesto, "Nombre del puesto" %></strong><br />
     <%= f.text_field :nom_puesto %>
   </div>
   <div class="actions">
-    <%= f.submit "#{ f.object.new_record? ? 'Crear puesto de la entidad': 'Actualizar puesto de la entidad'}" %>
+    <%= f.submit "#{ f.object.new_record? ? 'Crear puesto de la entidad': 'Actualizar puesto de la entidad'}" , :class => "btn" %>
   </div>
 <% end %>

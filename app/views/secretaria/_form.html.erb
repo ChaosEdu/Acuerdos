@@ -12,10 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nom_secretaria, "Nombre de la secretaría" %><br />
+    <strong><%= f.label :nom_secretaria, "Nombre de la secretaría" %></strong><br />
     <%= f.text_field :nom_secretaria %>
   </div>
   <div class="actions">
-    <%= f.submit "#{ f.object.new_record? ? 'Crear secretaría': 'Actualizar secretaría'}" %>
+    <%= f.submit "#{ f.object.new_record? ? 'Crear secretaría': 'Actualizar secretaría'}" , :class => "btn" %>
   </div>
 <% end %>

@@ -1,25 +1,25 @@
-<h1>Lista de Acuerdos</h1>
-
-<table>
-  <tr>
-    <th>Acta</th>
+<legend>Lista de Acuerdos</legend>
+<table class= "table table-hover">
+  <thead>
+    <th>Act</th>
     <th></th>
     <th></th>
     <th></th>
-  </tr>
+  </thead>
 
 <% @lista_acuerdos.each do |lista_acuerdo| %>
+<tbody>
   <tr>
-   
     <td><%= lista_acuerdo.act %></td>
-    <td><%= link_to 'Mostar lista de acuerdos', [@sesion, lista_acuerdo] %></td>
-    <td><%= link_to 'Editar lista de acuerdos', edit_sesion_lista_acuerdo_path(@sesion, lista_acuerdo) %></td>
-    <td><%= link_to 'Destruir lista de acuerdos', [@sesion, lista_acuerdo], method: :delete, data: { confirm: 'Está seguro que desea destruirla?' } %></td>
+    <td><%= link_to ' ', [@sesion, lista_acuerdo] , :class=>"icon-th-list" %></td>
+    <td><%= link_to ' ', edit_sesion_lista_acuerdo_path(@sesion, lista_acuerdo), :class=>"icon-edit" %></td>
+    <td><%= link_to ' ', [@sesion, lista_acuerdo], method: :delete, data: { confirm: 'Está seguro que desea destruirla?' } ,  :class=>"icon-remove" %></td>
   </tr>
+</tbody>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Nueva lista de acuerdos', new_sesion_lista_acuerdo_path(@sesion) %>
-<%= link_to 'Regresar a la sesión', entidad_paraestatal_sesions_path([@entidad_paraestatal, @sesion]) %>
+<%= link_to '  ', new_sesion_lista_acuerdo_path(@sesion) , :class=>"icon-home" %>
+<%= link_to 'Regresar', entidad_paraestatal_sesions_path([@entidad_paraestatal, @sesion]) %>

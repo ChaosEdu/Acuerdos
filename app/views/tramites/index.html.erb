@@ -1,21 +1,21 @@
-<h1>Listado de trámites</h1>
+<legend>Listado de trámites</legend>
 
-<table>
-  <tr>
+<table class="table table-hover">
+  <thead>
     <th>Nombre doc</th>
     <th>Entidad paraestatal</th>
     <th></th>
     <th></th>
     <th></th>
-  </tr>
+  </thead>
 
 <% @tramites.each do |tramite| %>
   <tr>
     <td><%= tramite.nombre_doc %></td>
     <td><%= tramite.entidad_paraestatal_id %></td>
-    <td><%= link_to 'Mostrar', tramite %></td>
-    <td><%= link_to 'Editar', edit_tramite_path(tramite) %></td>
-    <td><%= link_to 'Destruir', tramite, method: :delete, data: { confirm: 'Está seguro?' } %></td>
+    <td><%= link_to '  ', tramite, :class => "icon-th-list" %></td>
+    <td><%= link_to '  ', edit_tramite_path(tramite), :class => "icon-edit" %></td>
+    <td><%= link_to '  ', tramite, method: :delete, data: { confirm: 'Está seguro?' }, :class => "icon-remove" %></td>
   </tr>
 <% end %>
 </table>

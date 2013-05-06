@@ -1,34 +1,30 @@
-<h1>Listado de sesiones</h1>
 
-<table>
-  <tr>
-    <th>Status</th>
-    <th>Fecha</th>
-    <th>Hora</th>
-    <th>Lugar</th>
-    <th>Extra ordinaria</th>
-    <th>Suplente</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+            <legend>Listado de sesiones</legend>
+			<table class = "table table-hover">
+			  <thead>
+				<th>Status</th>
+				<th>Fecha</th>
+				<th>Lugar</th>
+				<th>Extra ordinaria</th>
+				<th>Suplente</th>
+				<th></th>
+				<th></th>
+				<th></th>
+			  </thead>
+			  <% @sesions.each do |sesion| %>
+			  <tbody>
+				<td><%= sesion.status %></td>
+				<td><%= sesion.fecha %></td>
+				<td><%= sesion.lugar %></td>
+				<td><%= sesion.extra_ordinaria %></td>
+				<td><%=  %></td>
+				<td><%= link_to ' ', [@entidad_paraestatal, sesion], :class => "icon-th-list"%></td>
+				<td><%= link_to ' ', edit_entidad_paraestatal_sesion_path(@entidad_paraestatal, sesion), :class=>"icon-edit"  %></td>
+				<td><%= link_to ' ', [@entidad_paraestatal, sesion], method: :delete, data: { confirm: 'Está seguro?' } , :class=>"icon-remove"%></td>
+			  </tbody>
+			<% end %>
+			</table>
+       
 
-<% @sesions.each do |sesion| %>
-  <tr>
-    <td><%= sesion.status %></td>
-    <td><%= sesion.fecha %></td>
-    <td><%= sesion.hora %></td>
-    <td><%= sesion.lugar %></td>
-    <td><%= sesion.extra_ordinaria %></td>
-    <td><%=  %></td>
-    <td><%= link_to 'Mostrar', [@entidad_paraestatal, sesion] %></td>
-    <td><%= link_to 'Editar', edit_entidad_paraestatal_sesion_path(@entidad_paraestatal, sesion)  %></td>
-    <td><%= link_to 'Destruir', sesion, method: :delete, data: { confirm: 'Está seguro?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'Nueva sesión', new_entidad_paraestatal_sesion_path(@entidad_paraestatal) %>
-<%= link_to 'Regregar a la entidad', entidad_paraestatal_path([@entidad_paraestatal, @sesion]) %>
+<%= link_to "Nueva sesión", new_entidad_paraestatal_sesion_path(@entidad_paraestatal), :class => "btn"%> |
+<%= link_to "Regresar", entidad_paraestatal_path([@entidad_paraestatal, @sesion]) %>

@@ -12,14 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nombre_doc %><br />
+    <strong><%= f.label :nombre_doc %></strong><br />
     <%= f.text_field :nombre_doc %>
   </div>
   <div class="field">
-    <%= f.label :entidad_paraestatal_id %><br />
+    <strong><%= f.label :entidad_paraestatal_id %></strong><br />
     <%= f.number_field :entidad_paraestatal_id %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit , :class => "btn"%>
   </div>
 <% end %>

@@ -1,46 +1,46 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Nombre:</b>
+  <strong>Nombre:</strong>
   <%= @empleado.nombre %>
 </p>
 
 <p>
-  <b>Ap paterno:</b>
+  <strong>Ap paterno:</strong>
   <%= @empleado.ap_paterno %>
 </p>
 
 <p>
-  <b>Ap materno:</b>
+  <strong>Ap materno:</strong>
   <%= @empleado.ap_materno %>
 </p>
 
 <p>
-  <b>Puesto:</b>
+  <strong>Puesto:</strong>
   <%= @empleado.puestos_entidad.nom_puesto %>
 </p>
 
 <p>
-  <b>Dir trabajo:</b>
+  <strong>Dir trabajo:</strong>
   <%= @empleado.dir_trabajo %>
 </p>
 
 
 <p>
-  <b>Activo en la entidad:</b>
+  <strong>Activo en la entidad:</strong>
   <%= @empleado.activo %>
 </p>
 
 <p>
-  <b>Tipo usuario:</b>
+  <strong>Tipo usuario:</strong>
   <%= @empleado.tipo_usuario.nom_usuario %>
 </p>
 
 <p>
-  <b>Entidad paraestatal:</b>
+  <strong>Entidad paraestatal:</strong>
   <%= @empleado.entidad_paraestatal.nom_entidad %>
 </p>
 
 
-<%= link_to 'Editar', edit_empleado_path(@empleado) %> |
-<%= link_to 'Regresar', empleados_path %>
+<%= link_to '  ', edit_empleado_path(@empleado), :class=> "icon-edit" %> |
+<%= link_to '  ', empleados_path,:class=>"icon-arrow-left" %>

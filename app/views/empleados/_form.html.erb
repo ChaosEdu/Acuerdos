@@ -12,38 +12,38 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nombre %><br />
+    <strong><%= f.label :nombre %></strong><br />
     <%= f.text_field :nombre %>
   </div>
   <div class="field">
-    <%= f.label :ap_paterno, "Apellido Paterno" %><br />
+    <strong><%= f.label :ap_paterno, "Apellido Paterno" %></strong><br />
     <%= f.text_field :ap_paterno %>
   </div>
   <div class="field">
-    <%= f.label :ap_materno, "Apellido Materno" %><br />
+    <strong><%= f.label :ap_materno, "Apellido Materno" %></strong><br />
     <%= f.text_field :ap_materno %>
   </div>
   <div class="field">
-    <%= f.label :puestos_entidad_id, "Puesto en la entidad" %><br />
+    <strong><%= f.label :puestos_entidad_id, "Puesto en la entidad" %></strong><br />
      <%= f.select :puestos_entidad_id, PuestosEntidad.all.collect {|p| [ p.nom_puesto, p.id ] }, { :include_blank => true } %>
   </div>
   <div class="field">
-    <%= f.label :dir_trabajo, "Dirección de trabajo" %><br />
+    <strong><%= f.label :dir_trabajo, "Dirección de trabajo" %></strong><br />
     <%= f.text_field :dir_trabajo %>
   </div>
   <div class="field">
-    <%= f.label :activo, "Activo en la entidad" %><br />
+    <strong><%= f.label :activo, "Activo en la entidad" %></strong><br />
     <%= f.check_box :activo %>
   </div>
   <div class="field">
-    <%= f.label :tipo_usuario_id, "Tipo de usuario" %><br />
+    <strong><%= f.label :tipo_usuario_id, "Tipo de usuario" %></strong><br />
     <%= f.select :tipo_usuario_id, TipoUsuario.all.collect {|p| [ p.nom_usuario, p.id ] }, { :include_blank => true } %>
   </div>
   <div class="field">
-    <%= f.label :entidad_paraestatal_id %><br />
+    <strong><%= f.label :entidad_paraestatal_id %></strong><br />
     <%= f.select :entidad_paraestatal_id, EntidadParaestatal.all.collect {|p| [ p.nom_entidad, p.id ] }, { :include_blank => true } %>
   </div>
   <div class="actions">
-    <%= f.submit "#{ f.object.new_record? ? 'Crear empleado': 'Actualizar empleado'}" %>
+    <%= f.submit "#{ f.object.new_record? ? 'Crear empleado': 'Actualizar empleado'}", :class=> "btn" %>
   </div>
 <% end %>

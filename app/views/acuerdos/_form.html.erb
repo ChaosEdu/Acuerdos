@@ -12,23 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :titulo %><br />
+    <strong><%= f.label :titulo %></strong><br />
     <%= f.text_field :titulo %>
   </div>
   <div class="field">
-    <%= f.label :detalles %><br />
+    <strong><%= f.label :detalles %></strong><br />
     <%= f.text_area :detalles %>
   </div>
   <div class="field">
-    <%= f.label :avance_acuerdo %><br />
+    <strong><%= f.label :avance_acuerdo %></strong><br />
     <%= f.text_area :avance_acuerdo %>
   </div>
   
   <div class="field">
-    <%= f.label :lista_acuerdo_id %><br />
+    <strong><%= f.label :lista_acuerdo_id %></strong><br />
     <%= f.number_field :lista_acuerdo_id %>
   </div>
   <div class="actions">
-    <%= f.submit "#{ f.object.new_record? ? 'Crear acuerdo': 'Actualizar acuerdo'}" %>
+    <%= f.submit "#{ f.object.new_record? ? 'Crear acuerdo': 'Actualizar acuerdo'}", :class => "btn" %>
   </div>
 <% end %>

@@ -1,19 +1,19 @@
-<h1>Listado de tipos de usuarios</h1>
+<legend>Listado de tipos de usuarios</legend>
 
-<table>
-  <tr>
+<table class="table table-hover">
+  <thead>
     <th>Nombre de usuario</th>
     <th></th>
     <th></th>
     <th></th>
-  </tr>
+  </thead>
 
 <% @tipo_usuarios.each do |tipo_usuario| %>
   <tr>
     <td><%= tipo_usuario.nom_usuario %></td>
-    <td><%= link_to 'Mostrar', tipo_usuario %></td>
-    <td><%= link_to 'Editar', edit_tipo_usuario_path(tipo_usuario) %></td>
-    <td><%= link_to 'Destruir', tipo_usuario, method: :delete, data: { confirm: 'Está seguro?' } %></td>
+    <td><%= link_to '  ', tipo_usuario, :class => "icon-th-list" %></td>
+    <td><%= link_to '  ', edit_tipo_usuario_path(tipo_usuario), :class=>"icon-edit" %></td>
+    <td><%= link_to '  ', tipo_usuario, method: :delete, data: { confirm: 'Está seguro?' }, :class => "icon-remove" %></td>
   </tr>
 <% end %>
 </table>

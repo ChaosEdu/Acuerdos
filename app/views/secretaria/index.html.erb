@@ -1,19 +1,19 @@
-<h1>Listado de secretarías</h1>
+<legend>Listado de secretarías</legend>
 
-<table>
-  <tr>
+<table class="table table-hover">
+  <thead>
     <th>Nombre de la secretaría</th>
     <th></th>
     <th></th>
     <th></th>
-  </tr>
+  </thead>
 
 <% @secretaria.each do |secretarium| %>
   <tr>
     <td><%= secretarium.nom_secretaria %></td>
-    <td><%= link_to 'Mostrar', secretarium %></td>
-    <td><%= link_to 'Editar', edit_secretarium_path(secretarium) %></td>
-    <td><%= link_to 'Destruir', secretarium, method: :delete, data: { confirm: 'Está seguro?' } %></td>
+    <td><%= link_to '  ', secretarium, :class => "icon-th-list" %></td>
+    <td><%= link_to '  ', edit_secretarium_path(secretarium), :class=>"icon-edit" %></td>
+    <td><%= link_to '  ', secretarium, method: :delete, data: { confirm: 'Está seguro?' }, :class =>"icon-remove" %></td>
   </tr>
 <% end %>
 </table>

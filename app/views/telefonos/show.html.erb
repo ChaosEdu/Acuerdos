@@ -1,20 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Número de teléfono:</b>
+  <strong>Número de teléfono:</strong>
   <%= @telefono.num_telefono %>
 </p>
 
 <p>
-  <b>Tipo de teléfono:</b>
+  <strong>Tipo de teléfono:</strong>
   <%= @telefono.tipo_tel.nom_tipo_tel %>
 </p>
 
 <p>
-  <b>Empleado:</b>
+  <strong>Empleado:</strong>
   <%= @telefono.empleado.nombre %>
 </p>
 
 
-<%= link_to 'Editar', edit_telefono_path(@telefono) %> |
-<%= link_to 'Regresar', telefonos_path %>
+<%= link_to '   ', edit_telefono_path(@telefono), :class =>"icon-edit" %> |
+<%= link_to '   ', telefonos_path, :class=>"icon-arrow-left" %>

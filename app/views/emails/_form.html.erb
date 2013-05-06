@@ -12,18 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :correo %><br />
+    <strong><%= f.label :correo %></strong><br />
     <%= f.text_field :correo %>
   </div>
   <div class="field">
-    <%= f.label :tipo_email_id, "Tipo de email" %><br />
+    <strong><%= f.label :tipo_email_id, "Tipo de email" %></strong><br />
     <%= f.select :tipo_email_id, TipoEmail.all.collect {|p| [ p.nom_tipo_email, p.id ] }, { :include_blank => true }  %>
   </div>
   <div class="field">
-    <%= f.label :empleado_id, "Empleado al que pertenece" %><br />
+    <strong><%= f.label :empleado_id, "Empleado al que pertenece" %></strong><br />
     <%= f.select :empleado_id, Empleado.all.collect {|p| [ p.nombre, p.id ] }, { :include_blank => true } %>
   </div>
   <div class="actions">
-    <%= f.submit "#{ f.object.new_record? ? 'Crear email': 'Actualizar email'}" %>
+    <%= f.submit "#{ f.object.new_record? ? 'Crear email': 'Actualizar email'}", :class => "btn" %>
   </div>
 <% end %>

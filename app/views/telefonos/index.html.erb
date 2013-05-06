@@ -1,23 +1,23 @@
-<h1>Listado de teléfonos</h1>
+<legend>Listado de teléfonos</legend>
 
-<table>
-  <tr>
+<table class="table table-hover">
+  <thead>
     <th>Número de teléfono</th>
     <th>Tipo de teléfono</th>
     <th>Empleado</th>
     <th></th>
     <th></th>
     <th></th>
-  </tr>
+  </thead>
 
 <% @telefonos.each do |telefono| %>
   <tr>
     <td><%= telefono.num_telefono %></td>
     <td><%= telefono.tipo_tel.try(:nom_tipo_tel) %></td>
     <td><%= telefono.empleado.try(:nombre) %></td>
-    <td><%= link_to 'Mostrar', telefono %></td>
-    <td><%= link_to 'Editar', edit_telefono_path(telefono) %></td>
-    <td><%= link_to 'Destruir', telefono, method: :delete, data: { confirm: '¿Está seguro que desea borrarlo?' } %></td>
+    <td><%= link_to '  ', telefono, :class => "icon-th-list" %></td>
+    <td><%= link_to '  ', edit_telefono_path(telefono), :class=>"icon-edit" %></td>
+    <td><%= link_to '  ', telefono, method: :delete, data: { confirm: '¿Está seguro que desea borrarlo?' }, :class=>"icon-remove" %></td>
   </tr>
 <% end %>
 </table>

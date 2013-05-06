@@ -1,22 +1,22 @@
-<h1>Listing organo_de_gobiernos</h1>
+<legend>Listing organo_de_gobiernos</legend>
 
-<table>
-  <tr>
+<table class="table table-hover">
+  <thead>
     <th>Nom organo</th>
     <th>Tipo organo de gobierno</th>
     <th></th>
     <th></th>
     <th></th>
-  </tr>
+  </thead>
 
 <% @organo_de_gobiernos.each do |organo_de_gobierno| %>
-  <tr>
+  <tbody>
     <td><%= organo_de_gobierno.nom_organo %></td>
     <td><%= organo_de_gobierno.tipo_organo_de_gobierno_id %></td>
-    <td><%= link_to 'Mostrar', organo_de_gobierno %></td>
-    <td><%= link_to 'Editar', edit_organo_de_gobierno_path(organo_de_gobierno) %></td>
-    <td><%= link_to 'Destruir', organo_de_gobierno, method: :delete, data: { confirm: 'Está seguro?' } %></td>
-  </tr>
+    <td><%= link_to '  ', organo_de_gobierno , :class => "icon-th-list"%></td>
+    <td><%= link_to '  ', edit_organo_de_gobierno_path(organo_de_gobierno), :class=>"icon-edit" %></td>
+    <td><%= link_to '  ', organo_de_gobierno, method: :delete, data: { confirm: 'Está seguro?' }, :class =>"icon-remove" %></td>
+  </tbody>
 <% end %>
 </table>
 

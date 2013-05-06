@@ -1,19 +1,19 @@
-<h1>Listado de los tipos de teléfonos</h1>
+<legend>Listado de los tipos de teléfonos</legend>
 
-<table>
-  <tr>
+<table class="table table-hover">
+  <thead>
     <th>Tipo de teléfono</th>
     <th></th>
     <th></th>
     <th></th>
-  </tr>
+  </thead>
 
 <% @tipo_tels.each do |tipo_tel| %>
   <tr>
     <td><%= tipo_tel.nom_tipo_tel %></td>
-    <td><%= link_to 'Mostrar', tipo_tel %></td>
-    <td><%= link_to 'Editar', edit_tipo_tel_path(tipo_tel) %></td>
-    <td><%= link_to 'Destruir', tipo_tel, method: :delete, data: { confirm: 'Está seguro?' } %></td>
+    <td><%= link_to '  ', tipo_tel, :class =>"icon-th-list" %></td>
+    <td><%= link_to '  ', edit_tipo_tel_path(tipo_tel), :class=>"icon-edit" %></td>
+    <td><%= link_to '  ', tipo_tel, method: :delete, data: { confirm: 'Está seguro?' } , :class => "icon-remove"%></td>
   </tr>
 <% end %>
 </table>

@@ -12,10 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :tipo_tel, "Tipo de teléfono" %><br />
+    <strong><%= f.label :tipo_tel, "Tipo de teléfono" %></strong><br />
     <%= f.text_field :nom_tipo_tel %>
   </div>
   <div class="actions">
-    <%= f.submit "#{ f.object.new_record? ? 'Crear tipo de teléfono': 'Actualizar tipo de teléfono'}" %>
+    <%= f.submit "#{ f.object.new_record? ? 'Crear tipo de teléfono': 'Actualizar tipo de teléfono'}" ,:class =>"btn" %>
   </div>
 <% end %>
